@@ -53,7 +53,7 @@ export default function Contact() {
     900: "#1C2025",
   };
 
-  useGSAP(()=>{
+  useGSAP(() => {
     gsap.from(".contact-img", {
       x: -400,
       duration: 2,
@@ -66,11 +66,17 @@ export default function Contact() {
       opacity: 0,
       // delay:0.5
     });
-  })
+  });
 
   return (
     <>
-      <Stack sx={{ backgroundColor: "#000000", flexDirection: "column", overflow:'hidden' }}>
+      <Stack
+        sx={{
+          backgroundColor: "#000000",
+          flexDirection: "column",
+          overflow: "hidden",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -209,6 +215,7 @@ export default function Contact() {
                 sx={{ textDecoration: "none" }}
               >
                 <Button
+                  disabled={!email || !username || !message}
                   startIcon={<LinkedInIcon />}
                   sx={{
                     backgroundColor: "#DAC5A726",

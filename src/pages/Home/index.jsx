@@ -193,6 +193,7 @@ export default function Home() {
           }}
           className="home-header"
         >
+          <Stack sx={{translate:"0 -80px"}}>
           <Typography
             sx={{
               color: "#DAC5A7",
@@ -221,6 +222,7 @@ export default function Home() {
             Premium Front-End and Back-End development and SEO <br /> services
             in help your business stand out
           </Typography>
+          </Stack>
         </Box>
         <Box
           sx={{
