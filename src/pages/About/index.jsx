@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography, Divider, Rating } from "@mui/material";
+import { Box, Button, Stack, Typography, Divider, Rating, Link } from "@mui/material";
 import React from "react";
 import SouthIcon from "@mui/icons-material/South";
 import CallMadeIcon from "@mui/icons-material/CallMade";
@@ -6,6 +6,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MailIcon from "@mui/icons-material/Mail";
 import gsap from "gsap";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Atropos from "atropos/react";
@@ -189,60 +191,72 @@ export default function About() {
                 </Box>
               </Stack>
             </Stack>
-            <Stack
-              mt={5}
-              gap="30px"
-              sx={{ width: "100%", flexDirection: { xs: "column", sm: "row" } }}
-              className="about-me-btns"
-            >
-              <Box
-                sx={{
-                  backgroundColor: "#DAC5A726",
-                  width: { xs: "100%", sm: "33%" },
-                  height: "56px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "space-around",
-                  padding: "1px",
-                }}
+            <Stack width="100%" mt={5} gap="30px" flexDirection="row">
+              <Link
+                href="https://www.linkedin.com/in/amirreza-mirshafiee-a029a025b"
+                target="_blank"
+                sx={{ textDecoration: "none" }}
               >
-                <Button startIcon={<LinkedInIcon />} sx={{ color: "#DAC5A7" }}>
+                <Button
+                  startIcon={<LinkedInIcon />}
+                  sx={{
+                    backgroundColor: "#DAC5A726",
+                    width: "265px",
+                    height: "56px",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "1px",
+                    color: "#DAC5A7",
+                  }}
+                >
                   Linkedin
                 </Button>
-                <CallMadeIcon sx={{ color: "#DAC5A7" }} />
-              </Box>
-              <Box
-                sx={{
-                  backgroundColor: "#DAC5A726",
-                  width: { xs: "100%", sm: "33%" },
-                  height: "56px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "space-around",
-                  padding: "1px",
-                }}
+              </Link>
+              <Link
+                href="https://github.com/AmirrezaMirshafiee"
+                target="_blank"
+                sx={{ textDecoration: "none" }}
               >
-                <Button startIcon={<GitHubIcon />} sx={{ color: "#DAC5A7" }}>
+                <Button
+                  startIcon={<GitHubIcon />}
+                  sx={{
+                    backgroundColor: "#DAC5A726",
+                    width: "265px",
+
+                    height: "56px",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "1px",
+                    color: "#DAC5A7",
+                  }}
+                >
                   Github
                 </Button>
-                <CallMadeIcon sx={{ color: "#DAC5A7" }} />
-              </Box>{" "}
-              <Box
-                sx={{
-                  backgroundColor: "#DAC5A726",
-                  width: { xs: "100%", sm: "33%" },
-                  height: "56px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "space-around",
-                  padding: "1px",
-                }}
+              </Link>
+              <Link
+                href="https://www.instagram.com/amirwrezam?igsh=MTl6dGx6NzVqbHEyMw=="
+                target="_blank"
+                sx={{ textDecoration: "none" }}
               >
-                <Button startIcon={<MailIcon />} sx={{ color: "#DAC5A7" }}>
-                  Email
+                <Button
+                  startIcon={<InstagramIcon />}
+                  sx={{
+                    backgroundColor: "#DAC5A726",
+                    width: "260px",
+
+                    height: "56px",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "1px",
+                    color: "#DAC5A7",
+                  }}
+                >
+                  Instagram
                 </Button>
-                <CallMadeIcon sx={{ color: "#DAC5A7" }} />
-              </Box>
+              </Link>
             </Stack>
             <Stack
               mt={5}
