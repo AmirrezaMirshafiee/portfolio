@@ -175,6 +175,7 @@ export default function Contact() {
                 />
                 <Button
                   variant="text"
+                  disabled={!email || !username || !message}
                   onClick={handleClick}
                   sx={{
                     backgroundColor: "#DAC5A7",
@@ -215,7 +216,6 @@ export default function Contact() {
                 sx={{ textDecoration: "none" }}
               >
                 <Button
-                  disabled={!email || !username || !message}
                   startIcon={<LinkedInIcon />}
                   sx={{
                     backgroundColor: "#DAC5A726",
