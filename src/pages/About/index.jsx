@@ -1,4 +1,12 @@
-import { Box, Button, Stack, Typography, Divider, Rating, Link } from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  Divider,
+  Rating,
+  Link,
+} from "@mui/material";
 import React from "react";
 import SouthIcon from "@mui/icons-material/South";
 import CallMadeIcon from "@mui/icons-material/CallMade";
@@ -7,6 +15,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import MailIcon from "@mui/icons-material/Mail";
 import gsap from "gsap";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { Gauge, GaugeContainer, GaugeReferenceArc, GaugeValueArc, useGaugeState } from "@mui/x-charts/Gauge";
 
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -63,6 +72,29 @@ export default function About() {
       duration: 1,
     });
   });
+  function GaugePointer() {
+    const { valueAngle, outerRadius, cx, cy } = useGaugeState();
+  
+    if (valueAngle === null) {
+      // No value to display
+      return null;
+    }
+  
+    const target = {
+      x: cx + outerRadius * Math.sin(valueAngle),
+      y: cy - outerRadius * Math.cos(valueAngle),
+    };
+    return (
+      <g>
+        <circle cx={cx} cy={cy} r={5} fill="red" />
+        <path
+          d={`M ${cx} ${cy} L ${target.x} ${target.y}`}
+          stroke="red"
+          strokeWidth={3}
+        />
+      </g>
+    );
+  }
   return (
     <>
       <Stack
@@ -361,7 +393,17 @@ export default function About() {
                   >
                     React JS
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
+                  <GaugeContainer
+                    width={200}
+                    height={200}
+                    startAngle={-110}
+                    endAngle={110}
+                    value={30}
+                  >
+                    <GaugeReferenceArc />
+                    <GaugeValueArc />
+                    <GaugePointer />
+                  </GaugeContainer>{" "}
                 </Box>
                 <Divider
                   sx={{
