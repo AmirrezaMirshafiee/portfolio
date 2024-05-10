@@ -8,6 +8,7 @@ import Alert from "@mui/material/Alert";
 import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
   const [username, setUsername] = useState("");
@@ -77,6 +78,10 @@ export default function Contact() {
           overflow: "hidden",
         }}
       >
+        <Helmet>
+          <title>Amirreza Mirshafiee-Contact</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Box
           sx={{
             display: "flex",

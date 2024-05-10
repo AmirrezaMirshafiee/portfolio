@@ -7,11 +7,16 @@ import Contact from './pages/Contact'
 import Services from './pages/Services'
 import About from './pages/About'
 import Footer from './Components/Footer'
+import { Helmet } from 'react-helmet'
 
 export default function App() {
   
   return (
     <>
+            <Helmet>
+          <title>Amirreza Mirshafiee</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
       <Navbar/>
 
       <Routes>

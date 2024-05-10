@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
 const pages = ["home", "services", "about", "contact", "work"];
@@ -39,15 +38,15 @@ function Navbar() {
       sx={{
         bgcolor: "rgba(255,255,255,.14)",
         backdropFilter: "blur(8px)",
-        width: {xl:'35%', lg:'40%',md:'54%',sm:'35%', xs:'40%' },
-        mx: {md:'22%',lg:'28%', sm:'32%', xl:'32%', xs:'30%'},
+        width: { xl: "35%", lg: "40%", md: "54%", sm: "35%", xs: "40%" },
+        mx: { md: "22%", lg: "28%", sm: "32%", xl: "32%", xs: "30%" },
         my: 4,
         border: "1px solid rgba(255,255,255,.2)",
       }}
     >
       <Container
         maxWidth="xl"
-        sx={{ display: "flex", justifyContent: "center", alignItems:'center' }}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
         <Toolbar disableGutters>
           <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -64,7 +63,7 @@ function Navbar() {
                 letterSpacing: ".2rem",
                 color: "#fff",
                 textDecoration: "none",
-                pb:'7px'
+                pb: "7px",
               }}
             >
               Amirreza
@@ -100,27 +99,27 @@ function Navbar() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={'/'}>
+                <Link to={"/"}>
                   <Typography textAlign="center">Home</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={'/services'}>
+                <Link to={"/services"}>
                   <Typography textAlign="center">Services</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={'/about'}>
+                <Link to={"/about"}>
                   <Typography textAlign="center">About</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={'/contact'}>
+                <Link to={"/contact"}>
                   <Typography textAlign="center">Contact</Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={'/work'}>
+                <Link to={"/work"}>
                   <Typography textAlign="center">Work</Typography>
                 </Link>
               </MenuItem>
@@ -169,20 +168,21 @@ function Navbar() {
                 about
               </Button>
             </Link>
-            <Link to={"/contact"} style={{ textDecoration: "none" }}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                contact
-              </Button>
-            </Link>
+
             <Link to={"/work"} style={{ textDecoration: "none" }}>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 work
+              </Button>
+            </Link>
+            <Link to={"/contact"} style={{ textDecoration: "none" }}>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                contact
               </Button>
             </Link>
           </Box>

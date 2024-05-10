@@ -9,10 +9,8 @@ import {
 } from "@mui/material";
 import React from "react";
 import SouthIcon from "@mui/icons-material/South";
-import CallMadeIcon from "@mui/icons-material/CallMade";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import MailIcon from "@mui/icons-material/Mail";
 import gsap from "gsap";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Gauge, GaugeContainer, GaugeReferenceArc, GaugeValueArc, useGaugeState } from "@mui/x-charts/Gauge";
@@ -21,7 +19,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Atropos from "atropos/react";
 import "atropos/css";
-import Image from "mui-image";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   gsap.registerPlugin(ScrollTrigger);
@@ -108,6 +106,10 @@ export default function About() {
           pb: 10,
         }}
       >
+        <Helmet>
+          <title>Amirreza Mirshafiee-About</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Stack
           sx={{
             flexDirection: "row",
