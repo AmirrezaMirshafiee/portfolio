@@ -8,8 +8,7 @@ import Atropos from "atropos/react";
 import "atropos/css";
 import Image from "mui-image";
 import { Link } from "react-router-dom";
-
-
+import { Helmet } from "react-helmet";
 
 export default function Services() {
   gsap.registerPlugin(ScrollTrigger);
@@ -73,6 +72,10 @@ export default function Services() {
           pb: 10,
         }}
       >
+        <Helmet>
+          <title>Amirreza Mirshafiee-Services</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Stack
           sx={{
             width: "100%",
@@ -84,50 +87,50 @@ export default function Services() {
             textAlign: "center",
           }}
         >
-        <Box
-          sx={{
-            backgroundImage: "url(assets/homepagePhoto.png)",
-            width: "100%",
-            height: "100vh",
-            backgroundPosition: "top",
-            backgroundSize: "700px",
-            backgroundRepeat: "no-repeat",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "end",
-          }}
-          className="home-header"
-        >
-          <Typography
+          <Box
             sx={{
-              color: "#DAC5A7",
-              textAlign: "center",
-              fontSize: { lg: "90px", md: "60px", sm: "40px", xs: "30px" },
+              backgroundImage: "url(assets/homepagePhoto.png)",
+              width: "100%",
+              height: "100vh",
+              backgroundPosition: "top",
+              backgroundSize: "700px",
+              backgroundRepeat: "no-repeat",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "end",
             }}
+            className="home-header"
           >
-            Full Stack <br />{" "}
             <Typography
               sx={{
-                fontStyle: "italic",
+                color: "#DAC5A7",
+                textAlign: "center",
                 fontSize: { lg: "90px", md: "60px", sm: "40px", xs: "30px" },
               }}
             >
-              {" "}
-              Mern Developer
+              Full Stack <br />{" "}
+              <Typography
+                sx={{
+                  fontStyle: "italic",
+                  fontSize: { lg: "90px", md: "60px", sm: "40px", xs: "30px" },
+                }}
+              >
+                {" "}
+                Mern Developer
+              </Typography>
             </Typography>
-          </Typography>
-          <Typography
-            sx={{
-              color: "rgba(255,255,255,0.3)",
-              textAlign: "center",
-              fontSize: "18px",
-            }}
-          >
-            Premium Front-End and Back-End development and SEO <br /> services
-            in help your business stand out
-          </Typography>
-        </Box>
+            <Typography
+              sx={{
+                color: "rgba(255,255,255,0.3)",
+                textAlign: "center",
+                fontSize: "18px",
+              }}
+            >
+              Premium Front-End and Back-End development and SEO <br /> services
+              in help your business stand out
+            </Typography>
+          </Box>
         </Stack>
         <Stack
           sx={{

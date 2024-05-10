@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 
 import "./style.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Helmet } from "react-helmet";
 
 export default function Work() {
   useGSAP(() => {
@@ -40,6 +41,10 @@ export default function Work() {
           pb: 18,
         }}
       >
+        <Helmet>
+          <title>Amirreza Mirshafiee-Work</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Stack
           sx={{
             display: "flex",
@@ -56,7 +61,7 @@ export default function Work() {
           <Typography
             variant="body2"
             color="#DAC5A799"
-            sx={{ textAlign: "center",px:10 }}
+            sx={{ textAlign: "center", px: 10 }}
           >
             My latest web design projects and see how we can help bring your
             ideas to life.
