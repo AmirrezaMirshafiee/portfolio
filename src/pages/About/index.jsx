@@ -13,7 +13,14 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import gsap from "gsap";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Gauge, GaugeContainer, GaugeReferenceArc, GaugeValueArc, useGaugeState } from "@mui/x-charts/Gauge";
+import {
+  Gauge,
+  GaugeContainer,
+  GaugeReferenceArc,
+  GaugeValueArc,
+  gaugeClasses,
+  useGaugeState,
+} from "@mui/x-charts/Gauge";
 
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -70,29 +77,13 @@ export default function About() {
       duration: 1,
     });
   });
-  function GaugePointer() {
-    const { valueAngle, outerRadius, cx, cy } = useGaugeState();
-  
-    if (valueAngle === null) {
-      // No value to display
-      return null;
-    }
-  
-    const target = {
-      x: cx + outerRadius * Math.sin(valueAngle),
-      y: cy - outerRadius * Math.cos(valueAngle),
-    };
-    return (
-      <g>
-        <circle cx={cx} cy={cy} r={5} fill="red" />
-        <path
-          d={`M ${cx} ${cy} L ${target.x} ${target.y}`}
-          stroke="red"
-          strokeWidth={3}
-        />
-      </g>
-    );
-  }
+
+  const settings = {
+    width: 200,
+    height: 200,
+    value: 60,
+  };
+
   return (
     <>
       <Stack
@@ -225,22 +216,42 @@ export default function About() {
                 </Box>
               </Stack>
             </Stack>
-            <Stack width="100%" mt={5} gap="30px" flexDirection="row">
+            <Stack
+              width="100%"
+              mt={5}
+              gap="30px"
+              flexDirection={{
+                xl: "row",
+                lg: "row",
+                md: "row",
+                sm: "column",
+                xs: "column",
+              }}
+              className="about-me-btns"
+            >
               <Link
                 href="https://www.linkedin.com/in/amirreza-mirshafiee-a029a025b"
                 target="_blank"
-                sx={{ textDecoration: "none" }}
+                sx={{
+                  textDecoration: "none",
+                  width: {
+                    xl: "30%",
+                    lg: "30%",
+                    md: "30%",
+                    sm: "100%",
+                    xs: "100%",
+                  },
+                }}
               >
                 <Button
                   startIcon={<LinkedInIcon />}
                   sx={{
                     backgroundColor: "#DAC5A726",
-                    width: "265px",
-                    height: "56px",
+                    width: "100%",
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
-                    padding: "1px",
+                    padding: "15px 1px",
                     color: "#DAC5A7",
                   }}
                 >
@@ -250,19 +261,26 @@ export default function About() {
               <Link
                 href="https://github.com/AmirrezaMirshafiee"
                 target="_blank"
-                sx={{ textDecoration: "none" }}
+                sx={{
+                  textDecoration: "none",
+                  width: {
+                    xl: "30%",
+                    lg: "30%",
+                    md: "30%",
+                    sm: "100%",
+                    xs: "100%",
+                  },
+                }}
               >
                 <Button
                   startIcon={<GitHubIcon />}
                   sx={{
                     backgroundColor: "#DAC5A726",
-                    width: "265px",
-
-                    height: "56px",
+                    width: "100%",
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
-                    padding: "1px",
+                    padding: "15px 1px",
                     color: "#DAC5A7",
                   }}
                 >
@@ -272,19 +290,26 @@ export default function About() {
               <Link
                 href="https://www.instagram.com/amirwrezam?igsh=MTl6dGx6NzVqbHEyMw=="
                 target="_blank"
-                sx={{ textDecoration: "none" }}
+                sx={{
+                  textDecoration: "none",
+                  width: {
+                    xl: "30%",
+                    lg: "30%",
+                    md: "30%",
+                    sm: "100%",
+                    xs: "100%",
+                  },
+                }}
               >
                 <Button
                   startIcon={<InstagramIcon />}
                   sx={{
                     backgroundColor: "#DAC5A726",
-                    width: "260px",
-
-                    height: "56px",
+                    width: "100%",
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
-                    padding: "1px",
+                    padding: "15px 1px",
                     color: "#DAC5A7",
                   }}
                 >
@@ -369,410 +394,273 @@ export default function About() {
               </Box>
             </Stack>
             <Stack
-              mt={5}
               sx={{
                 width: "100%",
-                backgroundColor: "#DAC5A726",
-                padding: "50px ",
-                flexDirection: "column",
               }}
               className="about-me-skills"
+              mt={5}
             >
-              <Typography color="#DAC5A799" fontSize="13px">
+              <Typography color="#DAC5A799" fontSize="40px">
                 Skills
               </Typography>
-              <Box mt={3} sx={{ display: "flex", flexDirection: "column" }}>
+              <Stack
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: {
+                    xl: "row",
+                    lg: "row",
+                    md: "row",
+                    sm: "column",
+                  },
+                  gap: 3,
+                }}
+                mt={3}
+              >
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "white",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        // fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
+                  >
+                    Javascript
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
+                  }}
+                >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
+                  <Typography
+                    variant="h5"
+                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
                     React JS
                   </Typography>
-                  <GaugeContainer
-                    width={200}
-                    height={200}
-                    startAngle={-110}
-                    endAngle={110}
-                    value={30}
-                  >
-                    <GaugeReferenceArc />
-                    <GaugeValueArc />
-                    <GaugePointer />
-                  </GaugeContainer>{" "}
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
+                  >
+                    Redux JS
+                  </Typography>
+                </Box>
+              </Stack>
+              <Stack
+                mt={3}
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: {
+                    xl: "row",
+                    lg: "row",
+                    md: "row",
+                    sm: "column",
+                  },
+                  gap: 3,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
+                  }}
+                >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
+                  <Typography
+                    variant="h5"
+                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
                     Node JS
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
-                    Express
+                    Express JS
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
-                    Square
+                    Mongo DB
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Next JS
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Redux
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Java Script
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Material UI
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Ant Design
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Testing React
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Bootstrap
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Html
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    MongoDB
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Formik
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Yup
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Swiper
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    GSAP
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Chart JS
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Redux
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-              </Box>
+              </Stack>
             </Stack>
           </Box>
         </Stack>
