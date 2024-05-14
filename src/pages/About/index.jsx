@@ -97,6 +97,7 @@ export default function About() {
           pb: 10,
         }}
       >
+        
         <Helmet>
           <title>Amirreza Mirshafiee-About</title>
           <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
@@ -209,7 +210,7 @@ export default function About() {
                     <img
                       width="100%"
                       height="100%"
-                      src="assets/IMG_0980.PNG"
+                      src="assets/me0.png"
                       alt="img"
                     />
                   </Box>

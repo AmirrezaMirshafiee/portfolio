@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Atropos from "atropos/react";
 import "atropos/css";
 import Image from "mui-image";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 export default function Services() {
@@ -72,6 +72,7 @@ export default function Services() {
           pb: 10,
         }}
       >
+
         <Helmet>
           <title>Amirreza Mirshafiee-Services</title>
           <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
@@ -89,7 +90,7 @@ export default function Services() {
         >
           <Box
             sx={{
-              backgroundImage: "url(assets/homepagePhoto.png)",
+              backgroundImage: "url(assets/me1.JPEG)",
               width: "100%",
               height: "100vh",
               backgroundPosition: "top",

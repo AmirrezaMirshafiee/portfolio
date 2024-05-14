@@ -183,7 +183,7 @@ export default function Home() {
         </Helmet>
         <Box
           sx={{
-            backgroundImage: "url(assets/IMG_0997.JPEG)",
+            backgroundImage: "url(assets/me1.JPEG)",
             width: "100%",
             height: "100vh",
             backgroundPosition: "top",
