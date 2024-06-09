@@ -10,6 +10,8 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Atropos from "atropos/react";
 import "atropos/css";
+import {Helmet} from "react-helmet";
+
 
 
 const Root = styled("div")(({ theme }) => ({
@@ -22,8 +24,6 @@ const Root = styled("div")(({ theme }) => ({
 }));
 
 export default function Home() {
-
-  
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(() => {
     gsap.from(".home-header", {
@@ -177,9 +177,13 @@ export default function Home() {
           pb: 10,
         }}
       >
+        <Helmet>
+          <title>Amirreza Mirshafiee-Home</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Box
           sx={{
-            backgroundImage: "url(assets/me3.JPG)",
+            backgroundImage: "url(assets/me1.JPEG)",
             width: "100%",
             height: "100vh",
             backgroundPosition: "top",
@@ -192,34 +196,36 @@ export default function Home() {
           }}
           className="home-header"
         >
-          <Typography
-            sx={{
-              color: "#DAC5A7",
-              textAlign: "center",
-              fontSize: { lg: "90px", md: "60px", sm: "40px", xs: "30px" },
-            }}
-          >
-            Full Stack <br />{" "}
+          <Stack sx={{ translate: "0 -80px" }}>
             <Typography
               sx={{
-                fontStyle: "italic",
-                fontSize: { lg: "90px", md: "60px", sm: "40px", xs: "30px" },
+                color: "#DAC5A7",
+                textAlign: "center",
+                fontSize: { lg: "70px", md: "60px", sm: "40px", xs: "30px" },
               }}
             >
-              {" "}
-              Mern Developer
+              Full Stack <br />{" "}
+              <Typography
+                sx={{
+                  fontStyle: "italic",
+                  fontSize: { lg: "70px", md: "60px", sm: "40px", xs: "30px" },
+                }}
+              >
+                {" "}
+                Mern Developer
+              </Typography>
             </Typography>
-          </Typography>
-          <Typography
-            sx={{
-              color: "rgba(255,255,255,0.3)",
-              textAlign: "center",
-              fontSize: "18px",
-            }}
-          >
-            Premium Front-End and Back-End development and SEO <br /> services
-            in help your business stand out
-          </Typography>
+            <Typography
+              sx={{
+                color: "rgba(255,255,255,0.3)",
+                textAlign: "center",
+                fontSize: "18px",
+              }}
+            >
+              Premium Front-End and Back-End development and SEO <br /> services
+              in help your business stand out
+            </Typography>
+          </Stack>
         </Box>
         <Box
           sx={{
@@ -429,11 +435,17 @@ export default function Home() {
             </Box>
           </Stack>
           <Stack
-            flexDirection={"row"}
             sx={{
               mt: 3,
               gap: 2,
               width: "100%",
+              flexDirection: {
+                xs: "column",
+                sm: "column",
+                md: "row",
+                lg: "row",
+                xl: "row",
+              },
             }}
           >
             <Atropos rotate="true">
@@ -481,7 +493,9 @@ export default function Home() {
               justifyContent: "space-evenly",
             }}
           >
-            <Typography className="step-header-small" sx={{ color: "#DAC5A7" }}>THE PROCESS</Typography>
+            <Typography className="step-header-small" sx={{ color: "#DAC5A7" }}>
+              THE PROCESS
+            </Typography>
             <Typography
               sx={{
                 color: "#DAC5A7",
@@ -1505,11 +1519,17 @@ export default function Home() {
         </Box>
         <Box
           sx={{
-            backgroundImage: "url(assets/homepagePhoto.png)",
+            backgroundImage: "url(assets/IMG_0997.JPEG)",
             width: "100%",
             height: "100vh",
-            backgroundPosition: "top",
-            backgroundSize: "700px",
+            backgroundPosition: "60% top",
+            backgroundSize: {
+              xl: "900px",
+              lg: "700px",
+              md: "700px",
+              sm: "500px",
+              xs: "400px",
+            },
             backgroundRepeat: "no-repeat",
             display: "flex",
             flexDirection: "column",
@@ -1519,7 +1539,7 @@ export default function Home() {
           }}
         >
           <Typography
-           className="about-me-name"
+            className="about-me-name"
             sx={{
               color: "#DAC5A7",
               fontSize: {

@@ -88,7 +88,11 @@ export default function Footer() {
               Social Communities :
             </Typography>
           </Stack>
-          <Stack direction={"row"} gap={"25px"}>
+          
+          <Stack  
+          gap={'25px'}
+            flexDirection={{md:'row',xs:'column',sm:'column'}}
+          >
             <Link
               href="https://www.instagram.com/amirwrezam?igsh=MTl6dGx6NzVqbHEyMw=="
               target="_blank"

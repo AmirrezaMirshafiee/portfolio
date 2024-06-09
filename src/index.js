@@ -8,6 +8,7 @@ import "../src/fonts/Satoshi-Regular.ttf";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";
 import font from "../src/fonts/Satoshi-Regular.ttf";
+import { Helmet } from "react-helmet";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const theme = createTheme({
@@ -22,7 +23,6 @@ const theme = createTheme({
       }
       `,
     },
-
   },
 
   typography: {
@@ -32,9 +32,13 @@ const theme = createTheme({
 
 root.render(
   <React.StrictMode>
+    <Helmet>
+      <title>Amirreza Mirshafiee</title>
+      <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+    </Helmet>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-      <App /> 
+        <App />
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

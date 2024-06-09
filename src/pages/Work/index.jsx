@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 
 import "./style.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Helmet } from "react-helmet";
 
 export default function Work() {
   useGSAP(() => {
@@ -40,6 +41,11 @@ export default function Work() {
           pb: 18,
         }}
       >
+        
+        <Helmet>
+          <title>Amirreza Mirshafiee-Work</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Stack
           sx={{
             display: "flex",
@@ -56,7 +62,7 @@ export default function Work() {
           <Typography
             variant="body2"
             color="#DAC5A799"
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: "center", px: 10 }}
           >
             My latest web design projects and see how we can help bring your
             ideas to life.
@@ -64,77 +70,60 @@ export default function Work() {
         </Stack>
         <Box className="work-img">
           <Stack
-            flexDirection={"row"}
-            sx={{
-              mt: 3,
-              // gap: 2,
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              px:10,
-              
-            }}
-          >
-            <Swiper
-              cssMode={true}
-              navigation={true}
-              pagination={true}
-              mousewheel={true}
-              keyboard={true}
-              modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-              className="mySwiper"
-            >
-              <SwiperSlide><img src="assets/ecommerce/ecomm-img1.png" alt="img"/></SwiperSlide>
-              <SwiperSlide><img src="assets/ecommerce/ecomm-img2.png" alt="img"/></SwiperSlide>
-              <SwiperSlide><img src="assets/ecommerce/ecomm-img3.png" alt="img"/></SwiperSlide>
-            </Swiper>
-            <Swiper
-              cssMode={true}
-              navigation={true}
-              pagination={true}
-              mousewheel={true}
-              keyboard={true}
-              modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-              className="mySwiper"
-            >
-              <SwiperSlide><img src="assets/pannel/panel-img1.png" alt="img"/></SwiperSlide>
-              <SwiperSlide><img src="assets/pannel/panel-img2.png" alt="img"/></SwiperSlide>
-              <SwiperSlide><img src="assets/pannel/panel-img3.png" alt="img"/></SwiperSlide>
-              <SwiperSlide><img src="assets/pannel/panel-img4.png" alt="img"/></SwiperSlide>
-              <SwiperSlide><img src="assets/pannel/panel-img5.png" alt="img"/></SwiperSlide>
-            </Swiper>
-            {/* <img
-              src="assets/HomepageIMG1.png"
-              alt="img"
-              style={{ width: "35%" }}
-            />
-            <img
-              src="assets/HomepageIMG2.png"
-              alt="img"
-              style={{ width: "35%" }}
-            /> */}
-          </Stack>
-          {/* <Stack
-            flexDirection={"row"}
             sx={{
               mt: 3,
               gap: 2,
               width: "100%",
               alignItems: "center",
               justifyContent: "center",
+              px: 10,
             }}
           >
-            <img
-              src="assets/HomepageIMG3.png"
-              alt="img"
-              style={{ width: "35%" }}
-            />
-            <img
-              src="assets/HomepageIMG4.png"
-              alt="img"
-              style={{ width: "35%" }}
-            />
-          </Stack> */}
+            <Swiper
+              cssMode={true}
+              navigation={true}
+              pagination={true}
+              mousewheel={true}
+              keyboard={true}
+              modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <img src="assets/ecommerce/ecomm-img1.png" alt="img" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="assets/ecommerce/ecomm-img2.png" alt="img" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="assets/ecommerce/ecomm-img3.png" alt="img" />
+              </SwiperSlide>
+            </Swiper>
+            <Swiper
+              cssMode={true}
+              navigation={true}
+              pagination={true}
+              mousewheel={true}
+              keyboard={true}
+              modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <img src="assets/pannel/panel-img1.png" alt="img" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="assets/pannel/panel-img2.png" alt="img" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="assets/pannel/panel-img3.png" alt="img" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="assets/pannel/panel-img4.png" alt="img" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="assets/pannel/panel-img5.png" alt="img" />
+              </SwiperSlide>
+            </Swiper>
+          </Stack>
         </Box>
       </Stack>
     </>

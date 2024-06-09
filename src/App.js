@@ -12,6 +12,10 @@ export default function App() {
   
   return (
     <>
+            <Helmet>
+          <title>Amirreza Mirshafiee</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
       <Navbar/>
 
       <Routes>

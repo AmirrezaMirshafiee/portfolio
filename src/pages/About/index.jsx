@@ -1,16 +1,32 @@
-import { Box, Button, Stack, Typography, Divider, Rating } from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  Divider,
+  Rating,
+  Link,
+} from "@mui/material";
 import React from "react";
 import SouthIcon from "@mui/icons-material/South";
-import CallMadeIcon from "@mui/icons-material/CallMade";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import MailIcon from "@mui/icons-material/Mail";
 import gsap from "gsap";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import {
+  Gauge,
+  GaugeContainer,
+  GaugeReferenceArc,
+  GaugeValueArc,
+  gaugeClasses,
+  useGaugeState,
+} from "@mui/x-charts/Gauge";
+
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Atropos from "atropos/react";
 import "atropos/css";
-import Image from "mui-image";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   gsap.registerPlugin(ScrollTrigger);
@@ -61,6 +77,13 @@ export default function About() {
       duration: 1,
     });
   });
+
+  const settings = {
+    width: 200,
+    height: 200,
+    value: 60,
+  };
+
   return (
     <>
       <Stack
@@ -74,6 +97,11 @@ export default function About() {
           pb: 10,
         }}
       >
+        
+        <Helmet>
+          <title>Amirreza Mirshafiee-About</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Stack
           sx={{
             flexDirection: "row",
@@ -182,7 +210,7 @@ export default function About() {
                     <img
                       width="100%"
                       height="100%"
-                      src="assets/me2.JPG"
+                      src="assets/me0.png"
                       alt="img"
                     />
                   </Box>
@@ -190,59 +218,105 @@ export default function About() {
               </Stack>
             </Stack>
             <Stack
+              width="100%"
               mt={5}
               gap="30px"
-              sx={{ width: "100%", flexDirection: { xs: "column", sm: "row" } }}
+              flexDirection={{
+                xl: "row",
+                lg: "row",
+                md: "row",
+                sm: "column",
+                xs: "column",
+              }}
               className="about-me-btns"
             >
-              <Box
+              <Link
+                href="https://www.linkedin.com/in/amirreza-mirshafiee-a029a025b"
+                target="_blank"
                 sx={{
-                  backgroundColor: "#DAC5A726",
-                  width: { xs: "100%", sm: "33%" },
-                  height: "56px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "space-around",
-                  padding: "1px",
+                  textDecoration: "none",
+                  width: {
+                    xl: "30%",
+                    lg: "30%",
+                    md: "30%",
+                    sm: "100%",
+                    xs: "100%",
+                  },
                 }}
               >
-                <Button startIcon={<LinkedInIcon />} sx={{ color: "#DAC5A7" }}>
+                <Button
+                  startIcon={<LinkedInIcon />}
+                  sx={{
+                    backgroundColor: "#DAC5A726",
+                    width: "100%",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "15px 1px",
+                    color: "#DAC5A7",
+                  }}
+                >
                   Linkedin
                 </Button>
-                <CallMadeIcon sx={{ color: "#DAC5A7" }} />
-              </Box>
-              <Box
+              </Link>
+              <Link
+                href="https://github.com/AmirrezaMirshafiee"
+                target="_blank"
                 sx={{
-                  backgroundColor: "#DAC5A726",
-                  width: { xs: "100%", sm: "33%" },
-                  height: "56px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "space-around",
-                  padding: "1px",
+                  textDecoration: "none",
+                  width: {
+                    xl: "30%",
+                    lg: "30%",
+                    md: "30%",
+                    sm: "100%",
+                    xs: "100%",
+                  },
                 }}
               >
-                <Button startIcon={<GitHubIcon />} sx={{ color: "#DAC5A7" }}>
+                <Button
+                  startIcon={<GitHubIcon />}
+                  sx={{
+                    backgroundColor: "#DAC5A726",
+                    width: "100%",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "15px 1px",
+                    color: "#DAC5A7",
+                  }}
+                >
                   Github
                 </Button>
-                <CallMadeIcon sx={{ color: "#DAC5A7" }} />
-              </Box>{" "}
-              <Box
+              </Link>
+              <Link
+                href="https://www.instagram.com/amirwrezam?igsh=MTl6dGx6NzVqbHEyMw=="
+                target="_blank"
                 sx={{
-                  backgroundColor: "#DAC5A726",
-                  width: { xs: "100%", sm: "33%" },
-                  height: "56px",
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "space-around",
-                  padding: "1px",
+                  textDecoration: "none",
+                  width: {
+                    xl: "30%",
+                    lg: "30%",
+                    md: "30%",
+                    sm: "100%",
+                    xs: "100%",
+                  },
                 }}
               >
-                <Button startIcon={<MailIcon />} sx={{ color: "#DAC5A7" }}>
-                  Email
+                <Button
+                  startIcon={<InstagramIcon />}
+                  sx={{
+                    backgroundColor: "#DAC5A726",
+                    width: "100%",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "15px 1px",
+                    color: "#DAC5A7",
+                  }}
+                >
+                  Instagram
                 </Button>
-                <CallMadeIcon sx={{ color: "#DAC5A7" }} />
-              </Box>
+              </Link>
             </Stack>
             <Stack
               mt={5}
@@ -321,400 +395,273 @@ export default function About() {
               </Box>
             </Stack>
             <Stack
-              mt={5}
               sx={{
                 width: "100%",
-                backgroundColor: "#DAC5A726",
-                padding: "50px ",
-                flexDirection: "column",
               }}
               className="about-me-skills"
+              mt={5}
             >
-              <Typography color="#DAC5A799" fontSize="13px">
+              <Typography color="#DAC5A799" fontSize="40px">
                 Skills
               </Typography>
-              <Box mt={3} sx={{ display: "flex", flexDirection: "column" }}>
+              <Stack
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: {
+                    xl: "row",
+                    lg: "row",
+                    md: "row",
+                    sm: "column",
+                  },
+                  gap: 3,
+                }}
+                mt={3}
+              >
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "white",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        // fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
+                  >
+                    Javascript
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
+                  }}
+                >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
+                  <Typography
+                    variant="h5"
+                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
                     React JS
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
+                  >
+                    Redux JS
+                  </Typography>
+                </Box>
+              </Stack>
+              <Stack
+                mt={3}
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: {
+                    xl: "row",
+                    lg: "row",
+                    md: "row",
+                    sm: "column",
+                  },
+                  gap: 3,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
+                  }}
+                >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
+                  <Typography
+                    variant="h5"
+                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
                     Node JS
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
-                    Express
+                    Express JS
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
                 <Box
                   sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    margin: "20px 0",
+                    alignItems: "center",
+                    backgroundColor: "#DAC5A726",
+                    width: { xl: "33%", lg: "32%", md: "32%", sm: "100%" },
+                    padding: 5,
+                    borderRadius: ".3rem",
                   }}
                 >
+                  <Gauge
+                    cornerRadius={"50%"}
+                    sx={(theme) => ({
+                      [`& .${gaugeClasses.valueText}`]: {
+                        fontSize: 40,
+                        color: "#fff",
+                      },
+                      [`& .${gaugeClasses.valueArc}`]: {
+                        fill: "#DAC5A7",
+                      },
+                      [`& .${gaugeClasses.referenceArc}`]: {
+                        fill: theme.palette.text.disabled,
+                      },
+                    })}
+                    width={200}
+                    height={200}
+                    value={100}
+                  />
                   <Typography
                     variant="h5"
                     sx={{ color: "#DAC5A7", fontSize: "20px" }}
+                    mt={3}
                   >
-                    Square
+                    Mongo DB
                   </Typography>
-                  <Rating value={4.5} precision={0.5} />
                 </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Next JS
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Redux
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Java Script
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Material UI
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Ant Design
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Testing React
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Bootstrap
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Html
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    MongoDB
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Formik
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Yup
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Swiper
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    GSAP
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Chart JS
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />{" "}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    margin: "20px 0",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{ color: "#DAC5A7", fontSize: "20px" }}
-                  >
-                    Redux
-                  </Typography>
-                  <Rating value={4.5} precision={0.5} />
-                </Box>
-                <Divider
-                  sx={{
-                    borderColor: "#DAC5A726",
-                  }}
-                />
-              </Box>
+              </Stack>
             </Stack>
           </Box>
         </Stack>

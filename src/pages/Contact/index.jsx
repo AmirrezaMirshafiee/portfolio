@@ -8,6 +8,7 @@ import Alert from "@mui/material/Alert";
 import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
   const [username, setUsername] = useState("");
@@ -53,7 +54,7 @@ export default function Contact() {
     900: "#1C2025",
   };
 
-  useGSAP(()=>{
+  useGSAP(() => {
     gsap.from(".contact-img", {
       x: -400,
       duration: 2,
@@ -66,11 +67,22 @@ export default function Contact() {
       opacity: 0,
       // delay:0.5
     });
-  })
+  });
 
   return (
     <>
-      <Stack sx={{ backgroundColor: "#000000", flexDirection: "column", overflow:'hidden' }}>
+      <Stack
+        sx={{
+          backgroundColor: "#000000",
+          flexDirection: "column",
+          overflow: "hidden",
+        }}
+      >
+        
+        <Helmet>
+          <title>Amirreza Mirshafiee-Contact</title>
+          <meta name="Amirreza Mirshafiee" content="Amirreza Mirshafiee" />
+        </Helmet>
         <Box
           sx={{
             display: "flex",
@@ -94,7 +106,7 @@ export default function Contact() {
             <img
               width="100%"
               height="100%"
-              src="./assets/homepagePhoto.png"
+              src="./assets/IMG_0997.JPEG"
               alt=""
               className="contact-img"
             />
@@ -169,6 +181,7 @@ export default function Contact() {
                 />
                 <Button
                   variant="text"
+                  disabled={!email || !username || !message}
                   onClick={handleClick}
                   sx={{
                     backgroundColor: "#DAC5A7",
